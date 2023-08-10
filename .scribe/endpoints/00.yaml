@@ -1,0 +1,223 @@
+name: 'public '
+description: |-
+
+  managging public travels
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/travels
+    metadata:
+      groupName: 'public '
+      groupDescription: |-
+
+        managging public travels
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'travels list'
+      description: 'list all public travels'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      page:
+        name: page
+        description: 'the page you require'
+        required: false
+        example: 1
+        type: integer
+        custom: []
+    cleanQueryParameters:
+      page: 1
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": [
+                {
+                   "id": "99a51e92-abe2-447c-ad77-98c9c4d720d6",
+                  "name": "William Cremin Jr.",
+                 "slug": "william-cremin-jr",
+                    "description": "Reiciendis corrupti eos voluptatem dignissimos non nostrum neque.",
+                   "number_of_days": 3,
+                   "number_of_nights": 2
+               },
+               {
+                   "id": "99a51e92-ad40-4e85-a7d5-d778e45b6d6b",
+                   "name": "Prof. Rylan Williamson DDS",
+                   "slug": "prof-rylan-williamson-dds",
+                   "description": "Dignissimos optio ut numquam quo nam id.",
+                   "number_of_days": 14,
+                   "number_of_nights": 13
+               },
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/travel/{travel_slug}/tours'
+    metadata:
+      groupName: 'public '
+      groupDescription: |-
+
+        Api for managging a Tours
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Tours list'
+      description: 'list all tours for a travel'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      travel_slug:
+        name: travel_slug
+        description: 'The slug of the travel.'
+        required: true
+        example: 99a51e59-6d53-4d0f-a065-e96e0de3fe91
+        type: string
+        custom: []
+    cleanUrlParameters:
+      travel_slug: 99a51e59-6d53-4d0f-a065-e96e0de3fe91
+    queryParameters:
+      sortBy:
+        name: sortBy
+        description: 'Field to sort by.'
+        required: false
+        example: price
+        type: string
+        custom: []
+      sortOrder:
+        name: sortOrder
+        description: 'the type of order you want.'
+        required: false
+        example: asc
+        type: string
+        custom: []
+      dateFrom:
+        name: dateFrom
+        description: 'Filter by date starting_date.'
+        required: false
+        example: '2023-02-01'
+        type: string
+        custom: []
+      dateTo:
+        name: dateTo
+        description: 'Filter by date enging_date.'
+        required: false
+        example: '2023-02-30'
+        type: string
+        custom: []
+      priceFrom:
+        name: priceFrom
+        description: 'Filter by price.'
+        required: false
+        example: '100.00'
+        type: string
+        custom: []
+      priceTo:
+        name: priceTo
+        description: 'Filter by price.'
+        required: false
+        example: '999.99'
+        type: string
+        custom: []
+    cleanQueryParameters:
+      sortBy: price
+      sortOrder: asc
+      dateFrom: '2023-02-01'
+      dateTo: '2023-02-30'
+      priceFrom: '100.00'
+      priceTo: '999.99'
+    bodyParameters:
+      dateFrom:
+        name: dateFrom
+        description: 'Must be a valid date.'
+        required: false
+        example: '2023-07-14T16:24:41'
+        type: string
+        custom: []
+      dateTo:
+        name: dateTo
+        description: 'Must be a valid date.'
+        required: false
+        example: '2023-07-14T16:24:41'
+        type: string
+        custom: []
+      priceFrom:
+        name: priceFrom
+        description: ''
+        required: false
+        example: 1345213.1902
+        type: number
+        custom: []
+      priceTo:
+        name: priceTo
+        description: ''
+        required: false
+        example: 74.0
+        type: number
+        custom: []
+      sortBy:
+        name: sortBy
+        description: 'Must be one of <code>price</code>.'
+        required: false
+        example: price
+        type: string
+        custom: []
+      sortOrder:
+        name: sortOrder
+        description: 'Must be one of <code>asc</code> or <code>desc</code>.'
+        required: false
+        example: asc
+        type: string
+        custom: []
+    cleanBodyParameters:
+      dateFrom: '2023-07-14T16:24:41'
+      dateTo: '2023-07-14T16:24:41'
+      priceFrom: 1345213.1902
+      priceTo: 74.0
+      sortBy: price
+      sortOrder: asc
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data": [
+                {
+                    "id": "99a520f1-18fe-494c-a96d-f758b4021893",
+                    "name": "Voluptatem.",
+                    "starting_date": "2023-07-14",
+                   "ending_date": "2023-07-24",
+                  "price": "282.90"
+             }
+           ],
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

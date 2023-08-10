@@ -1,0 +1,331 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/mentorship.test"
+        }
+    ],
+    "info": {
+        "name": "mentorShip Api",
+        "_postman_id": "a2c218bb-531b-4656-87db-b36d4e699d62",
+        "description": "Start (and never finish) side projects with this API.",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Login",
+            "description": "\nlogin Api to get your access token",
+            "item": [
+                {
+                    "name": "POST api\/login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"example@web.com\",\"password\":\"1649846#\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n {\n     \"access_token\": \"1|6cTyUTp7OZNRNGiZVX4wK4DSIWIPZwqUXjNBHall\"\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "admin",
+            "description": "",
+            "item": [
+                {
+                    "name": "Add A travel to Travels list",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/travels",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admin\/travels"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"is_public\":false,\"name\":\"nesciunt\",\"description\":\"quos\",\"number_of_days\":8}"
+                        },
+                        "description": "This endpoint allows you to add a Travel to the Travels list.\nIt's a really useful endpoint, and you should be an admin\n<aside class=\"notice\">We mean it; you really should.\ud83d\ude15<\/aside>"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\":\n     {\n         \"id\": \"99a51e92-ad40-4e85-a7d5-d778e45b6d6b\",\n         \"name\": \"Prof. Rylan Williamson DDS\",\n         \"slug\": \"prof-rylan-williamson-dds\",\n         \"description\": \"Dignissimos optio ut numquam quo nam id.\",\n         \"number_of_days\": 14,\n         \"number_of_nights\": 13\n     },\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Tour store Api",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/travels\/:travel_id\/tours",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admin\/travels\/:travel_id\/tours",
+                            "variable": [
+                                {
+                                    "id": "travel_id",
+                                    "key": "travel_id",
+                                    "value": "99a51e59-6d53-4d0f-a065-e96e0de3fe91",
+                                    "description": "The ID of the travel."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"perferendis\",\"starting_date\":\"quo\",\"ending_date\":\"amet\",\"price\":2.7}"
+                        },
+                        "description": "Tour store for a specific travel"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\":\n  {\n      \"id\": \"99a520f1-18fe-494c-a96d-f758b4021893\",\n      \"name\": \"Voluptatem.\",\n      \"starting_date\": \"2023-07-14\",\n      \"ending_date\": \"2023-07-24\",\n      \"price\": \"282.90\"\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "update A travel",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/travels\/:travel_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admin\/travels\/:travel_id",
+                            "variable": [
+                                {
+                                    "id": "travel_id",
+                                    "key": "travel_id",
+                                    "value": "99a51e59-6d53-4d0f-a065-e96e0de3fe91",
+                                    "description": "The ID of the travel."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"is_public\":true,\"name\":\"alias\",\"description\":\"in\",\"number_of_days\":14}"
+                        },
+                        "description": "This endpoint allows you to update a Travel .\nIt's a really useful endpoint, and you should be an admin\\"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\":\n     {\n         \"id\": \"99a51e92-ad40-4e85-a7d5-d778e45b6d6b\",\n         \"name\": \"Prof. Rylan Williamson DDS\",\n         \"slug\": \"prof-rylan-williamson-dds\",\n         \"description\": \"Dignissimos optio ut numquam quo nam id.\",\n         \"number_of_days\": 12,\n         \"number_of_nights\": 13\n     },\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "public ",
+            "description": "\nmanagging public travels",
+            "item": [
+                {
+                    "name": "travels list",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/travels",
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "the page you require",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/travels?page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "list all public travels",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": [\n      {\n         \"id\": \"99a51e92-abe2-447c-ad77-98c9c4d720d6\",\n        \"name\": \"William Cremin Jr.\",\n       \"slug\": \"william-cremin-jr\",\n          \"description\": \"Reiciendis corrupti eos voluptatem dignissimos non nostrum neque.\",\n         \"number_of_days\": 3,\n         \"number_of_nights\": 2\n     },\n     {\n         \"id\": \"99a51e92-ad40-4e85-a7d5-d778e45b6d6b\",\n         \"name\": \"Prof. Rylan Williamson DDS\",\n         \"slug\": \"prof-rylan-williamson-dds\",\n         \"description\": \"Dignissimos optio ut numquam quo nam id.\",\n         \"number_of_days\": 14,\n         \"number_of_nights\": 13\n     },\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Tours list",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/travel\/:travel_slug\/tours",
+                            "query": [
+                                {
+                                    "key": "sortBy",
+                                    "value": "price",
+                                    "description": "Field to sort by.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sortOrder",
+                                    "value": "asc",
+                                    "description": "the type of order you want.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "dateFrom",
+                                    "value": "2023-02-01",
+                                    "description": "Filter by date starting_date.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "dateTo",
+                                    "value": "2023-02-30",
+                                    "description": "Filter by date enging_date.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "priceFrom",
+                                    "value": "100.00",
+                                    "description": "Filter by price.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "priceTo",
+                                    "value": "999.99",
+                                    "description": "Filter by price.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/travel\/:travel_slug\/tours?sortBy=price&sortOrder=asc&dateFrom=2023-02-01&dateTo=2023-02-30&priceFrom=100.00&priceTo=999.99",
+                            "variable": [
+                                {
+                                    "id": "travel_slug",
+                                    "key": "travel_slug",
+                                    "value": "99a51e59-6d53-4d0f-a065-e96e0de3fe91",
+                                    "description": "The slug of the travel."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"dateFrom\":\"2023-07-14T16:24:41\",\"dateTo\":\"2023-07-14T16:24:41\",\"priceFrom\":1345213.1902,\"priceTo\":74,\"sortBy\":\"price\",\"sortOrder\":\"asc\"}"
+                        },
+                        "description": "list all tours for a travel",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"data\": [\n      {\n          \"id\": \"99a520f1-18fe-494c-a96d-f758b4021893\",\n          \"name\": \"Voluptatem.\",\n          \"starting_date\": \"2023-07-14\",\n         \"ending_date\": \"2023-07-24\",\n        \"price\": \"282.90\"\n   }\n ],\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "Authorization",
+                "value": null,
+                "type": "string"
+            }
+        ]
+    }
+}

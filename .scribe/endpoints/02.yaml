@@ -1,0 +1,272 @@
+name: admin
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/admin/travels
+    metadata:
+      groupName: admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Add A travel to Travels list'
+      description: |-
+        This endpoint allows you to add a Travel to the Travels list.
+        It's a really useful endpoint, and you should be an admin
+        <aside class="notice">We mean it; you really should.😕</aside>
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {ACCESS_TOKN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      is_public:
+        name: is_public
+        description: ''
+        required: true
+        example: false
+        type: boolean
+        custom: []
+      name:
+        name: name
+        description: ''
+        required: true
+        example: nesciunt
+        type: string
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: true
+        example: quos
+        type: string
+        custom: []
+      number_of_days:
+        name: number_of_days
+        description: ''
+        required: true
+        example: 8
+        type: integer
+        custom: []
+    cleanBodyParameters:
+      is_public: false
+      name: nesciunt
+      description: quos
+      number_of_days: 8
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data":
+               {
+                   "id": "99a51e92-ad40-4e85-a7d5-d778e45b6d6b",
+                   "name": "Prof. Rylan Williamson DDS",
+                   "slug": "prof-rylan-williamson-dds",
+                   "description": "Dignissimos optio ut numquam quo nam id.",
+                   "number_of_days": 14,
+                   "number_of_nights": 13
+               },
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer Vb1D6ZaPcvk5fgha6Ee348d'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/admin/travels/{travel_id}/tours'
+    metadata:
+      groupName: admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Tour store Api'
+      description: 'Tour store for a specific travel'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {ACCESS_TOKN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      travel_id:
+        name: travel_id
+        description: 'The ID of the travel.'
+        required: true
+        example: 99a51e59-6d53-4d0f-a065-e96e0de3fe91
+        type: string
+        custom: []
+    cleanUrlParameters:
+      travel_id: 99a51e59-6d53-4d0f-a065-e96e0de3fe91
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The name of the travel.'
+        required: true
+        example: perferendis
+        type: string
+        custom: []
+      starting_date:
+        name: starting_date
+        description: 'the starting date of the tour'
+        required: true
+        example: quo
+        type: date
+        custom: []
+      ending_date:
+        name: ending_date
+        description: 'the ending date of the tour'
+        required: true
+        example: amet
+        type: date
+        custom: []
+      price:
+        name: price
+        description: 'the price of the tour'
+        required: true
+        example: 2.7
+        type: number
+        custom: []
+    cleanBodyParameters:
+      name: perferendis
+      starting_date: quo
+      ending_date: amet
+      price: 2.7
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data":
+            {
+                "id": "99a520f1-18fe-494c-a96d-f758b4021893",
+                "name": "Voluptatem.",
+                "starting_date": "2023-07-14",
+                "ending_date": "2023-07-24",
+                "price": "282.90"
+            }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer k351E6cea48PghVbdfZDav6'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/admin/travels/{travel_id}'
+    metadata:
+      groupName: admin
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'update A travel'
+      description: |-
+        This endpoint allows you to update a Travel .
+        It's a really useful endpoint, and you should be an admin\
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {ACCESS_TOKN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      travel_id:
+        name: travel_id
+        description: 'The ID of the travel.'
+        required: true
+        example: 99a51e59-6d53-4d0f-a065-e96e0de3fe91
+        type: string
+        custom: []
+    cleanUrlParameters:
+      travel_id: 99a51e59-6d53-4d0f-a065-e96e0de3fe91
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      is_public:
+        name: is_public
+        description: ''
+        required: true
+        example: true
+        type: boolean
+        custom: []
+      name:
+        name: name
+        description: ''
+        required: true
+        example: alias
+        type: string
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: true
+        example: in
+        type: string
+        custom: []
+      number_of_days:
+        name: number_of_days
+        description: ''
+        required: true
+        example: 14
+        type: integer
+        custom: []
+    cleanBodyParameters:
+      is_public: true
+      name: alias
+      description: in
+      number_of_days: 14
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "data":
+               {
+                   "id": "99a51e92-ad40-4e85-a7d5-d778e45b6d6b",
+                   "name": "Prof. Rylan Williamson DDS",
+                   "slug": "prof-rylan-williamson-dds",
+                   "description": "Dignissimos optio ut numquam quo nam id.",
+                   "number_of_days": 12,
+                   "number_of_nights": 13
+               },
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer P56Zhg8vDf61abd4akE3ceV'
+    controller: null
+    method: null
+    route: null
+    custom: []

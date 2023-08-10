@@ -1,0 +1,64 @@
+name: Login
+description: |-
+
+  login Api to get your access token
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/login
+    metadata:
+      groupName: Login
+      groupDescription: |-
+
+        login Api to get your access token
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'your valid email.'
+        required: true
+        example: example@web.com
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'your password.'
+        required: true
+        example: '1649846#'
+        type: string
+        custom: []
+    cleanBodyParameters:
+      email: example@web.com
+      password: '1649846#'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+           {
+               "access_token": "1|6cTyUTp7OZNRNGiZVX4wK4DSIWIPZwqUXjNBHall"
+           }
+          }
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

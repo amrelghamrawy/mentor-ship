@@ -1,0 +1,403 @@
+openapi: 3.0.3
+info:
+  title: 'mentorShip Api'
+  description: 'Start (and never finish) side projects with this API.'
+  version: 1.0.0
+servers:
+  -
+    url: 'http://mentorship.test'
+paths:
+  /api/login:
+    post:
+      summary: ''
+      operationId: postApiLogin
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n {\n     \"access_token\": \"1|6cTyUTp7OZNRNGiZVX4wK4DSIWIPZwqUXjNBHall\"\n }\n}"
+      tags:
+        - Login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'your valid email.'
+                  example: example@web.com
+                password:
+                  type: string
+                  description: 'your password.'
+                  example: '1649846#'
+              required:
+                - email
+                - password
+      security: []
+  /api/admin/travels:
+    post:
+      summary: 'Add A travel to Travels list'
+      operationId: addATravelToTravelsList
+      description: "This endpoint allows you to add a Travel to the Travels list.\nIt's a really useful endpoint, and you should be an admin\n<aside class=\"notice\">We mean it; you really should.😕</aside>"
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {ACCESS_TOKN}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"data\":\n     {\n         \"id\": \"99a51e92-ad40-4e85-a7d5-d778e45b6d6b\",\n         \"name\": \"Prof. Rylan Williamson DDS\",\n         \"slug\": \"prof-rylan-williamson-dds\",\n         \"description\": \"Dignissimos optio ut numquam quo nam id.\",\n         \"number_of_days\": 14,\n         \"number_of_nights\": 13\n     },\n}"
+      tags:
+        - admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                is_public:
+                  type: boolean
+                  description: ''
+                  example: false
+                name:
+                  type: string
+                  description: ''
+                  example: nesciunt
+                description:
+                  type: string
+                  description: ''
+                  example: quos
+                number_of_days:
+                  type: integer
+                  description: ''
+                  example: 8
+              required:
+                - is_public
+                - name
+                - description
+                - number_of_days
+  '/api/admin/travels/{travel_id}/tours':
+    post:
+      summary: 'Tour store Api'
+      operationId: tourStoreApi
+      description: 'Tour store for a specific travel'
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {ACCESS_TOKN}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 99a520f1-18fe-494c-a96d-f758b4021893
+                    name: Voluptatem.
+                    starting_date: '2023-07-14'
+                    ending_date: '2023-07-24'
+                    price: '282.90'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 99a520f1-18fe-494c-a96d-f758b4021893
+                      name:
+                        type: string
+                        example: Voluptatem.
+                      starting_date:
+                        type: string
+                        example: '2023-07-14'
+                      ending_date:
+                        type: string
+                        example: '2023-07-24'
+                      price:
+                        type: string
+                        example: '282.90'
+      tags:
+        - admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the travel.'
+                  example: perferendis
+                starting_date:
+                  type: date
+                  description: 'the starting date of the tour'
+                  example: quo
+                ending_date:
+                  type: date
+                  description: 'the ending date of the tour'
+                  example: amet
+                price:
+                  type: number
+                  description: 'the price of the tour'
+                  example: 2.7
+              required:
+                - name
+                - starting_date
+                - ending_date
+                - price
+    parameters:
+      -
+        in: path
+        name: travel_id
+        description: 'The ID of the travel.'
+        example: 99a51e59-6d53-4d0f-a065-e96e0de3fe91
+        required: true
+        schema:
+          type: string
+  '/api/admin/travels/{travel_id}':
+    put:
+      summary: 'update A travel'
+      operationId: updateATravel
+      description: "This endpoint allows you to update a Travel .\nIt's a really useful endpoint, and you should be an admin\\"
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {ACCESS_TOKN}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"data\":\n     {\n         \"id\": \"99a51e92-ad40-4e85-a7d5-d778e45b6d6b\",\n         \"name\": \"Prof. Rylan Williamson DDS\",\n         \"slug\": \"prof-rylan-williamson-dds\",\n         \"description\": \"Dignissimos optio ut numquam quo nam id.\",\n         \"number_of_days\": 12,\n         \"number_of_nights\": 13\n     },\n}"
+      tags:
+        - admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                is_public:
+                  type: boolean
+                  description: ''
+                  example: true
+                name:
+                  type: string
+                  description: ''
+                  example: alias
+                description:
+                  type: string
+                  description: ''
+                  example: in
+                number_of_days:
+                  type: integer
+                  description: ''
+                  example: 14
+              required:
+                - is_public
+                - name
+                - description
+                - number_of_days
+    parameters:
+      -
+        in: path
+        name: travel_id
+        description: 'The ID of the travel.'
+        example: 99a51e59-6d53-4d0f-a065-e96e0de3fe91
+        required: true
+        schema:
+          type: string
+  /api/travels:
+    get:
+      summary: 'travels list'
+      operationId: travelsList
+      description: 'list all public travels'
+      parameters:
+        -
+          in: query
+          name: page
+          description: 'the page you require'
+          example: 1
+          required: false
+          schema:
+            type: integer
+            description: 'the page you require'
+            example: 1
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"data\": [\n      {\n         \"id\": \"99a51e92-abe2-447c-ad77-98c9c4d720d6\",\n        \"name\": \"William Cremin Jr.\",\n       \"slug\": \"william-cremin-jr\",\n          \"description\": \"Reiciendis corrupti eos voluptatem dignissimos non nostrum neque.\",\n         \"number_of_days\": 3,\n         \"number_of_nights\": 2\n     },\n     {\n         \"id\": \"99a51e92-ad40-4e85-a7d5-d778e45b6d6b\",\n         \"name\": \"Prof. Rylan Williamson DDS\",\n         \"slug\": \"prof-rylan-williamson-dds\",\n         \"description\": \"Dignissimos optio ut numquam quo nam id.\",\n         \"number_of_days\": 14,\n         \"number_of_nights\": 13\n     },\n}"
+      tags:
+        - 'public '
+      security: []
+  '/api/travel/{travel_slug}/tours':
+    get:
+      summary: 'Tours list'
+      operationId: toursList
+      description: 'list all tours for a travel'
+      parameters:
+        -
+          in: query
+          name: sortBy
+          description: 'Field to sort by.'
+          example: price
+          required: false
+          schema:
+            type: string
+            description: 'Field to sort by.'
+            example: price
+        -
+          in: query
+          name: sortOrder
+          description: 'the type of order you want.'
+          example: asc
+          required: false
+          schema:
+            type: string
+            description: 'the type of order you want.'
+            example: asc
+        -
+          in: query
+          name: dateFrom
+          description: 'Filter by date starting_date.'
+          example: '2023-02-01'
+          required: false
+          schema:
+            type: string
+            description: 'Filter by date starting_date.'
+            example: '2023-02-01'
+        -
+          in: query
+          name: dateTo
+          description: 'Filter by date enging_date.'
+          example: '2023-02-30'
+          required: false
+          schema:
+            type: string
+            description: 'Filter by date enging_date.'
+            example: '2023-02-30'
+        -
+          in: query
+          name: priceFrom
+          description: 'Filter by price.'
+          example: '100.00'
+          required: false
+          schema:
+            type: string
+            description: 'Filter by price.'
+            example: '100.00'
+        -
+          in: query
+          name: priceTo
+          description: 'Filter by price.'
+          example: '999.99'
+          required: false
+          schema:
+            type: string
+            description: 'Filter by price.'
+            example: '999.99'
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"data\": [\n      {\n          \"id\": \"99a520f1-18fe-494c-a96d-f758b4021893\",\n          \"name\": \"Voluptatem.\",\n          \"starting_date\": \"2023-07-14\",\n         \"ending_date\": \"2023-07-24\",\n        \"price\": \"282.90\"\n   }\n ],\n}"
+      tags:
+        - 'public '
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                dateFrom:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2023-07-14T16:24:41'
+                dateTo:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2023-07-14T16:24:41'
+                priceFrom:
+                  type: number
+                  description: ''
+                  example: 1345213.1902
+                priceTo:
+                  type: number
+                  description: ''
+                  example: 74.0
+                sortBy:
+                  type: string
+                  description: 'Must be one of <code>price</code>.'
+                  example: price
+                sortOrder:
+                  type: string
+                  description: 'Must be one of <code>asc</code> or <code>desc</code>.'
+                  example: asc
+      security: []
+    parameters:
+      -
+        in: path
+        name: travel_slug
+        description: 'The slug of the travel.'
+        example: 99a51e59-6d53-4d0f-a065-e96e0de3fe91
+        required: true
+        schema:
+          type: string
+tags:
+  -
+    name: Login
+    description: "\nlogin Api to get your access token"
+  -
+    name: admin
+    description: ''
+  -
+    name: 'public '
+    description: "\nmanagging public travels"
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: ''
+security:
+  -
+    default: []
